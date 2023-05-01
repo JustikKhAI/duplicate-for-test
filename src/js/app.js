@@ -18,7 +18,7 @@ if (currentPageUrl.includes("catalog")) {
    // Сторінка КАТАЛОГ
    justikFunctions.renderCatalog();
 
-   setTimeout(justikFunctions.filterFromOtherPage, 100);
+   setTimeout(justikFunctions.filterFromOtherPage, 500);
 
    activeFilter.addEventListener("click", justikFunctions.filterHandler);
 
