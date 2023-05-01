@@ -1,0 +1,359 @@
+.header {
+   position: fixed;
+   width: 100%;
+   top: 0;
+   left: 0;
+   z-index: 50;
+   &:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: $white;
+      z-index: 13;
+   }
+   & .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px 0 20px;
+   }
+   &__body {
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      height: 80px;
+      align-items: center;
+   }
+   &__logo {
+      flex: 0 0 130px;
+      position: relative;
+      z-index: 14;
+      img {
+         display: block;
+         max-width: 100%;
+      }
+   }
+   &__burger {
+      display: none;
+   }
+   &__list {
+      position: relative;
+      z-index: 13;
+      height: 80px;
+      display: flex;
+      align-items: center;
+      li {
+         height: 80px;
+         margin: 0 0 0 14px;
+         list-style: none;
+         display: flex;
+         align-items: center;
+         &:first-child {
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            cursor: pointer;
+         }
+      }
+   }
+   &__link {
+      line-height: 80px;
+      height: 80px;
+      color: $black;
+      text-transform: uppercase;
+      font-weight: 500;
+      @include adaptive-font(18, 24);
+      text-decoration: none;
+      &.hoverable {
+         position: relative;
+         &:before,
+         &:after {
+            transform-origin: center center;
+            transform: scale(0);
+            transition: all 0.3s ease 0s;
+            width: 100%;
+            height: 2px;
+            background-color: $color_corp;
+            position: absolute;
+            content: "";
+            left: 0;
+         }
+         &:before {
+            top: 0;
+         }
+         &:after {
+            bottom: 0;
+         }
+         &:hover {
+            &:before,
+            &:after {
+               transform: scale(1);
+            }
+         }
+      }
+   }
+   &__icons {
+      display: flex;
+      justify-content: center;
+   }
+   &__icon {
+      box-sizing: border-box;
+      height: 80px;
+      padding: 25px 0;
+      margin: 0 0 0 14px;
+      &.hoverable {
+         position: relative;
+         &:before,
+         &:after {
+            transform-origin: center center;
+            transform: scale(0);
+            transition: all 0.3s ease 0s;
+            width: 100%;
+            height: 2px;
+            background-color: $color_corp;
+            position: absolute;
+            content: "";
+            left: 0;
+         }
+         &:before {
+            top: 0;
+         }
+         &:after {
+            bottom: 0;
+         }
+         &:hover {
+            &:before,
+            &:after {
+               transform: scale(1);
+            }
+         }
+      }
+   }
+}
+ul.sex-container {
+   position: absolute;
+   top: 80px;
+   width: 300px;
+   // height: 300px;
+   background-color: #fff;
+
+   z-index: 3;
+   display: none;
+}
+ul.sex-container.show-item {
+   display: flex;
+   flex-direction: column;
+   align-items: stretch;
+}
+li.sex-element {
+   display: flex;
+   flex-direction: column;
+   align-items: stretch;
+   margin: 0;
+   padding: 0;
+   height: 100%;
+   flex: 1 1 auto;
+   position: relative;
+}
+span.sex-header {
+   // height: 50px;
+   text-transform: uppercase;
+   padding: 15px 5px;
+}
+ul.season-container {
+   position: absolute;
+
+   // height: 150px;
+   top: 0;
+   left: 300px;
+   padding: 0;
+   display: none;
+}
+ul.season-container.show-item {
+   display: flex;
+   flex-direction: column;
+}
+li.season-element {
+   padding: 0;
+   margin: 0;
+   flex: 1 1 50px;
+   height: 30px;
+}
+span.season-header {
+   background-color: #fff;
+   padding: 15px;
+   width: 300px;
+   color: darkslategrey;
+}
+
+@media (max-width: 767px) {
+   .header {
+      &__body {
+         height: 50px;
+      }
+      &__logo {
+         flex: 0 0 80px;
+      }
+      &__burger {
+         display: block;
+         position: relative;
+         width: 30px;
+         height: 20px;
+         // position: relative;
+         z-index: 14;
+         &:before,
+         &:after {
+            content: "";
+            background-color: $color_corp;
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            border-radius: 1px;
+            left: 0;
+            transition: all 0.3s ease 0s;
+         }
+         &:before {
+            top: 0;
+         }
+         &::after {
+            bottom: 0;
+         }
+         &.active {
+            &:before {
+               transform: rotate(45deg);
+               top: 9px;
+            }
+            &:after {
+               transform: rotate(-45deg);
+               bottom: 9px;
+            }
+            & span {
+               transform: scale(0);
+            }
+         }
+
+         & span {
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            border-radius: 1px;
+
+            top: 9px;
+            background-color: $color_corp;
+            transition: all 0.3s ease 0s;
+         }
+      }
+      &__menu {
+         position: fixed;
+         top: -110%;
+         left: 0;
+         width: 100%;
+         height: 100%;
+         background-color: $color_light_corp;
+         padding: 70px 10px 0px 10px;
+         transition: all 0.3s ease 0s;
+         overflow: scroll;
+         &.lock {
+            overflow: hidden;
+         }
+
+         &.active {
+            top: 0;
+         }
+      }
+      &__list {
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+         justify-content: flex-start;
+         li {
+            margin: 0 0 20px 0;
+            height: auto;
+         }
+      }
+      &__icons {
+         margin: 0 0 20px;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+      }
+      &__icon {
+         height: 50px;
+         padding: 0 15px;
+         img {
+            padding: 10px 0;
+         }
+         &.hoverable {
+            &:hover {
+               position: relative;
+               &:before,
+               &:after {
+                  left: -5%;
+
+                  width: 110%;
+               }
+            }
+         }
+      }
+   }
+   ul.sex-container {
+      position: static;
+      width: 100%;
+      background-color: transparent;
+
+      z-index: 0;
+      display: none;
+   }
+   ul.sex-container.show-item {
+      // display: flex;
+      // flex-direction: column;
+      // align-items: stretch;
+      align-self: stretch;
+   }
+   li.sex-element {
+      // display: flex;
+      // flex-direction: column;
+      // align-items: stretch;
+      // margin: 0;
+      // padding: 0;
+      // height: 100%;
+      flex: 1 1 auto;
+      // position: relative;
+   }
+   span.sex-header {
+      // text-transform: uppercase;
+      padding:5px;
+      font-weight: 500;
+   }
+   ul.season-container {
+      position: static;
+
+      height: auto;
+      // top: 0;
+      // left: 300px;
+      // padding: 0;
+      // display: none;
+   }
+   ul.season-container.show-item {
+      // display: flex;
+      // flex-direction: column;
+      padding-top: 10px;
+   }
+   li.season-element {
+      // padding: 0;
+      // margin: 0;
+      flex: 1 1 30px;
+      height: auto;
+      border: 0.5px solid $black;
+   }
+   span.season-header {
+      background-color: transparent;
+      padding: 5px;
+      width: 100%;
+      color: $black;
+      font-weight: 500;
+   }
+}

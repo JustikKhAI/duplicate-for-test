@@ -1,0 +1,52 @@
+@import "styles/_reset";
+@import "styles/_variables";
+@import "styles/_mixins";
+@import "styles/_fonts";
+*{
+   box-sizing: border-box;
+}
+body{
+   font-family: Montserrat, sans-serif;
+   line-height: 1.3;
+   background-color: $white;
+   padding-top: 80px;
+}
+a {
+   text-decoration: none;
+   color: $black;
+}
+
+@media only screen and (min-width: 320px) {
+   body {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: stretch;
+   }
+   #catalog {
+      flex: 1 1 100vh;
+   }
+}
+
+
+@import "styles/_header";
+@import "styles/_main";
+@import "styles/_guarantee";
+@import "styles/_shops";
+@import "styles/_contacts";
+@import "styles/_footer";
+@import "styles/_spinner";
+@import "styles/_catalog";
+// @import "styles/_filter";
+
+
+
+
+@media (max-width:767px){
+   body{
+      padding-top: 50px;
+      &.lock{
+         overflow: hidden;
+      }
+   }
+}

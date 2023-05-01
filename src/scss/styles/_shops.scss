@@ -1,0 +1,273 @@
+.shops {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   user-select: none;
+   position: relative;
+   z-index: -10;
+   &-fix {
+      position: absolute;
+      bottom: 0;
+      height: 80px;
+      z-index: -20;
+   }
+   &-container {
+      padding: 20px;
+      width: 1200px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+   }
+   &__title {
+      color: $color_corp;
+      font-size: 40px;
+      line-height: 1.5;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 20px;
+   }
+   &-block {
+      display: flex;
+      justify-content: space-between;
+      color: $white;
+   }
+   &-item {
+      position: relative;
+      width: 275px;
+      height: 350px;
+      border-radius: $border-radius-small;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 10px 20px;
+
+      &__title {
+         font-size: 30px;
+         line-height: 1.5;
+         letter-spacing: 1.5px;
+         font-weight: 700;
+         text-transform: uppercase;
+         margin-bottom: $spacing-large;
+      }
+      &__subtitle {
+         display: none;
+         margin-bottom: $spacing-small;
+         font-size: 10px;
+         line-height: 1.5;
+         font-weight: 500;
+         font-style: italic;
+         height: 20px;
+         vertical-align: top;
+      }
+      &__address {
+         font-weight: 700;
+         font-size: 16px;
+         line-height: 1.5;
+         margin-bottom: 50px;
+         text-align: center;
+      }
+      &__schedule {
+         text-align: center;
+         margin-bottom: 45px;
+         font-size: 14px;
+         font-weight: 500;
+         line-height: 1.5;
+         position: relative;
+         font-style: italic;
+         &:before,
+         &:after {
+            content: "";
+            background-color: $color_corp;
+            height: 2px;
+            width: 100px;
+            position: absolute;
+            left: calc(50% - 50px);
+         }
+         &:before {
+            top: -10px;
+         }
+         &:after {
+            bottom: -10px;
+         }
+      }
+      &__phone {
+         align-self: stretch;
+         text-align: center;
+         margin: 0 10px 25px;
+         padding: 2px auto;
+         background-color: $color_corp;
+         background-color: rgba(0, 134, 138, 0.6);
+         color: $white;
+         font-size: 17px;
+         font-weight: 900;
+         line-height: 1.5;
+         letter-spacing: 1px;
+         border-radius: $border-radius-medium;
+         &.hoverable:hover {
+            background-color: transparent;
+            background: linear-gradient(
+               to bottom,
+               $color_corp,
+               rgb(0, 108, 110)
+            );
+         }
+      }
+      &__img {
+         position: absolute;
+         top: 0;
+         left: 0;
+         z-index: -1;
+         width: 100%;
+         height: 100%;
+      }
+   }
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199.99px) {
+   .shops {
+      &-container {
+         width: 992px;
+      }
+      &-item {
+         width: 230px;
+         height: 300px;
+         padding: 20px 10px;
+         &__title {
+            line-height: 1;
+            letter-spacing: 1px;
+         }
+         &__address {
+            height: 24px;
+            margin-bottom: 26px;
+
+            &.shop-address-2 {
+               padding: 0 35px;
+            }
+            &.shop-address-3 {
+               padding: 0 30px;
+            }
+         }
+         &__schedule {
+            margin-bottom: 25px;
+         }
+         &__phone {
+            margin: 0 10px 0px;
+         }
+      }
+   }
+}
+@media only screen and (min-width: 768px) and (max-width: 991.99px) {
+   .shops {
+      &-container {
+         width: 768px;
+         padding: $spacing-large 10px;
+      }
+      &-item {
+         width: 180px;
+         height: 235px;
+         padding: 20px 5px;
+         &__title {
+            line-height: 1;
+            letter-spacing: 1px;
+            font-size: 24px;
+         }
+         &__address {
+            height: 18px;
+            margin-bottom: 26px;
+            font-size: 12px;
+            &.shop-address-2 {
+               padding: 0 35px;
+            }
+            &.shop-address-3 {
+               padding: 0 30px;
+            }
+         }
+         &__schedule {
+            font-size: 10px;
+            margin-bottom: 15px;
+         }
+         &__phone {
+            font-size: 16px;
+            margin: 0 10px 0px;
+         }
+      }
+   }
+}
+@media only screen and (min-width: 560px) and (max-width: 767.99px) {
+   .shops {
+      &-fix {
+         height: 50px;
+      }
+      &-container {
+         width: 560px;
+         padding: $spacing-medium 10px;
+      }
+      &-block {
+         flex-wrap: wrap;
+      }
+      &-item {
+         margin-bottom: 20px;
+         width: 48%;
+         &__phone {
+            margin: 0 10px 25px;
+         }
+      }
+   }
+}
+@media only screen and (min-width: 320px) and (max-width: 559.99px) {
+   .shops {
+      &-fix {
+         height: 50px;
+      }
+      &-container {
+         width: 100vw;
+         padding: $spacing-medium 5px;
+      }
+      &__title {
+         font-size: 24px;
+      }
+      &-block {
+         display: grid;
+         max-width: 100%;
+         height: 120vw;
+         grid-template-columns: 5fr 5fr;
+         grid-template-rows: 6fr 6fr;
+         grid-gap: 5px;
+      }
+      &-item {
+         width: 100%;
+         height: 100%;
+         margin: 0;
+         padding: calc((50vw / 100) * 12) 0;
+         justify-content: space-between;
+         &__title {
+            margin: 0;
+            line-height: 1;
+            letter-spacing: 0.5px;
+            font-size: calc((50vw / 100) * 12);
+         }
+         &__address {
+            margin: 0;
+            height: calc((50vw / 100) * 8);
+            font-size: calc((50vw / 100) * 6);
+            &.shop-address-2 {
+               padding: 0;
+            }
+            &.shop-address-3 {
+               padding: 0;
+            }
+         }
+         &__schedule {
+            font-size: calc((50vw / 100) * 6);
+            margin: 0;
+         }
+         &__phone {
+            font-size: calc((50vw / 100) * 8);
+            margin: 0 5px;
+            padding: 0;
+         }
+      }
+   }
+}

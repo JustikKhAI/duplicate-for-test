@@ -1,0 +1,30 @@
+$maxWidth: 1200;
+// COLORS
+$white: #fefefe;
+$black: #111;
+$color_corp: #00868a;
+$color_corp60: rgba(0, 134, 138, 0.6);
+$color_corp2: #4fbfa5;
+$color_light_corp: #aad4de;
+
+$spacing-small: 10px;
+$spacing-medium: 15px;
+$spacing-large: 30px;
+
+$border-radius-medium: 20px;
+$border-radius-small: 10px;
+
+$shadow: 4px 4px 16px rgb(50, 50, 50);
+$shadow2: 4px 4px 4px rgba(25, 25, 25, 0.5);
+
+$main_list_style_type: "✓ ";
+$main_bg: linear-gradient(90deg, $color_corp2, $color_corp);
+$main-bg-img: url('../img/main/bg-image.svg');
+
+
+$color-guarantee-bg: #e6f3f4;
+$color-guarantee-summary: #aaded4;
+$color-guarantee-price: #008c94;
+$border-guarantee-condition-decline: 4px solid var(--color-corp);
+$shadow-guarantee: 1px 1px 1px rgb(100, 100, 100);
+$shadow-guarantee-price: 1px 1px 5px rgb(100, 200, 200);
