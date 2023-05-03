@@ -1,4 +1,3 @@
-
 class Product {
    constructor(data) {
       this.articul = data.ARTICUL;
@@ -112,8 +111,6 @@ class Product {
       let itemPriceElem = document.createElement("div");
       itemPriceElem.className = "c-item-price__elem";
 
-      
-
       let itemPrice = document.createElement("p");
       itemPrice.classList.add(
          "c-item__price",
@@ -142,7 +139,7 @@ export class Catalog {
    constructor() {
       this.products = [];
    }
-   
+
    render() {
       const htmlCat = document.createElement("div");
       htmlCat.className = "catalog-container";
@@ -154,8 +151,7 @@ export class Catalog {
          }
       });
       const catalogBlock = document.getElementById("catalog");
-         catalogBlock.appendChild(htmlCat);
-      
+      catalogBlock.appendChild(htmlCat);
    }
 
    generateProducts(data) {
@@ -171,10 +167,8 @@ export class Catalog {
 function getActionSale(price, sale) {
    if (sale != 0 && sale < price) {
       return "action-enabled";
-     
    } else {
       return "action-disabled";
-     
    }
 }
 

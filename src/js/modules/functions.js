@@ -7,7 +7,8 @@ export function isWebp() {
       webP.onload = webP.onerror = function () {
          callback(webP.height == 2);
       };
-      webP.src ="data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACyAgCdASoCAAIALmk0mk0iIiIiIgBoSygABc6WWgAA/veff/0PP8bA//LwYAAA";
+      webP.src =
+         "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACyAgCdASoCAAIALmk0mk0iIiIiIgBoSygABc6WWgAA/veff/0PP8bA//LwYAAA";
    }
    //добавление класса webp или no-webp для HTML
    testWebP(function (support) {
@@ -132,8 +133,8 @@ export function qrOnTouchDevice() {
       qrBlock.classList.remove("show-qr");
    });
 }
-const catalogPage = new Catalog();
-export const renderCatalog = function () {
+export const catalogPage = new Catalog();
+export function renderCatalog() {
    Papa.parse("../files/price-var.csv", {
       download: true,
       header: true,
@@ -146,7 +147,9 @@ export const renderCatalog = function () {
 };
 function getFilter(id) {
    const idParts = id.split("_");
+   // console.log(idParts);
    const elems = Array.from(document.querySelectorAll(".catalog-item"));
+   // console.log(elems);
    elems.forEach((item) => {
       item.classList.add("hide-item");
       item.classList.remove("show-item");
@@ -184,12 +187,11 @@ export function filterOtherPage(event) {
    window.location.href = "/catalog-page.html?" + id;
 }
 
-export function filterFromOtherPage() {
+export const filterFromOtherPage = function() {
    const filter = window.location.href.split("?")[1];
    if (filter === undefined) {
       return false;
    } else {
-      // debugger;
       getFilter(filter);
    }
 }

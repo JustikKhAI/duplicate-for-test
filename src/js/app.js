@@ -11,24 +11,17 @@ justikFunctions.toggleBurger();
 
 justikFunctions.filterShowHideUI();
 
-const activeFilter = document.querySelector(".sex-container");
+const headerFilter = document.querySelector(".sex-container");
 
 const currentPageUrl = window.location.href;
 if (currentPageUrl.includes("catalog")) {
    // Сторінка КАТАЛОГ
+   console.log(currentPageUrl);
    justikFunctions.renderCatalog();
-
-   setTimeout(justikFunctions.filterFromOtherPage, 500);
-
-   activeFilter.addEventListener("click", justikFunctions.filterHandler);
-
+   setTimeout(justikFunctions.filterFromOtherPage,500);
+   headerFilter.addEventListener("click", justikFunctions.filterHandler);
 } else {
    // ГОЛОВНА
    justikFunctions.assignIndexFotoPath();
-   activeFilter.addEventListener("click", justikFunctions.filterOtherPage);
+   headerFilter.addEventListener("click", justikFunctions.filterOtherPage);
 }
-
-
-
-
-
