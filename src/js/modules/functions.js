@@ -24,6 +24,7 @@ export function toggleBurger() {
    var headerBurger = document.querySelector(".header__burger");
    var headerMenu = document.querySelector(".header__menu");
    var headerLink = document.querySelectorAll(".header__list a");
+   var headerFilter = document.querySelectorAll(".filter-option")
    var body = document.body;
 
    headerBurger.addEventListener("click", function (event) {
@@ -33,6 +34,14 @@ export function toggleBurger() {
       headerMenu.classList.toggle("lock");
    });
    headerLink.forEach((item) =>
+      item.addEventListener("click", function (event) {
+         headerBurger.classList.toggle("active");
+         headerMenu.classList.toggle("active");
+         body.classList.toggle("lock");
+         headerMenu.classList.toggle("lock");
+      })
+   );
+   headerFilter.forEach((item) =>
       item.addEventListener("click", function (event) {
          headerBurger.classList.toggle("active");
          headerMenu.classList.toggle("active");
