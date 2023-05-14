@@ -317,6 +317,10 @@ a {
   top: 0;
   left: 0;
   z-index: 50;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 
 .header:before {
@@ -330,7 +334,7 @@ a {
   z-index: 13;
 }
 
-.header .container {
+.header__container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px 0 20px;
@@ -379,7 +383,7 @@ a {
           align-items: center;
 }
 
-.header__list li {
+.header__list > li {
   height: 80px;
   margin: 0 0 0 14px;
   list-style: none;
@@ -389,65 +393,16 @@ a {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-}
-
-.header__list li:first-child {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
   position: relative;
   cursor: pointer;
 }
 
 .header__link {
   line-height: 80px;
-  height: 80px;
   color: #111;
   text-transform: uppercase;
   font-weight: 500;
   text-decoration: none;
-}
-
-.header__link.hoverable {
-  position: relative;
-}
-
-.header__link.hoverable:before,
-.header__link.hoverable:after {
-  -webkit-transform-origin: center center;
-      -ms-transform-origin: center center;
-          transform-origin: center center;
-  -webkit-transform: scale(0);
-      -ms-transform: scale(0);
-          transform: scale(0);
-  -webkit-transition: all 0.3s ease 0s;
-  -o-transition: all 0.3s ease 0s;
-  transition: all 0.3s ease 0s;
-  width: 100%;
-  height: 2px;
-  background-color: #00868a;
-  position: absolute;
-  content: "";
-  left: 0;
-}
-
-.header__link.hoverable:before {
-  top: 0;
-}
-
-.header__link.hoverable:after {
-  bottom: 0;
-}
-
-.header__link.hoverable:hover:before,
-.header__link.hoverable:hover:after {
-  -webkit-transform: scale(1);
-      -ms-transform: scale(1);
-          transform: scale(1);
 }
 
 .header__icons {
@@ -467,100 +422,97 @@ a {
   margin: 0 0 0 14px;
 }
 
-.header__icon.hoverable {
+.cat-arrow {
+  margin-left: 10px;
+  height: 7px;
+  width: 7px;
+  background-color: transparent;
   position: relative;
 }
 
-.header__icon.hoverable:before,
-.header__icon.hoverable:after {
-  -webkit-transform-origin: center center;
-      -ms-transform-origin: center center;
-          transform-origin: center center;
-  -webkit-transform: scale(0);
-      -ms-transform: scale(0);
-          transform: scale(0);
-  -webkit-transition: all 0.3s ease 0s;
-  -o-transition: all 0.3s ease 0s;
-  transition: all 0.3s ease 0s;
-  width: 100%;
-  height: 2px;
-  background-color: #00868a;
+.cat-arrow:after {
   position: absolute;
-  content: "";
+  top: -3px;
   left: 0;
-}
-
-.header__icon.hoverable:before {
-  top: 0;
-}
-
-.header__icon.hoverable:after {
-  bottom: 0;
-}
-
-.header__icon.hoverable:hover:before,
-.header__icon.hoverable:hover:after {
-  -webkit-transform: scale(1);
-      -ms-transform: scale(1);
-          transform: scale(1);
-}
-
-ul.sex-container {
-  position: absolute;
-  top: 80px;
-  width: 300px;
-  background-color: #fff;
-  z-index: 3;
-  display: none;
-}
-
-ul.sex-container.show-item {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: stretch;
-      -ms-flex-align: stretch;
-          align-items: stretch;
-}
-
-li.sex-element {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: stretch;
-      -ms-flex-align: stretch;
-          align-items: stretch;
-  margin: 0;
-  padding: 0;
   height: 100%;
-  -webkit-box-flex: 1;
-      -ms-flex: 1 1 auto;
-          flex: 1 1 auto;
-  position: relative;
+  width: 100%;
+  content: "";
+  border: solid #111;
+  border-width: 0 2px 2px 0;
+  -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+          transform: rotate(45deg);
 }
 
-span.sex-header {
-  text-transform: uppercase;
-  padding: 15px 5px;
+.hoverable .cat-arrow {
+  display: none;
+  -webkit-box-ordinal-group: 3;
+      -ms-flex-order: 2;
+          order: 2;
 }
 
-ul.season-container {
+.sex-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   position: absolute;
-  top: 0;
-  left: 300px;
+  top: 79px;
+  left: -100%;
+  width: 80vw;
+  max-width: 320px;
+  background-color: #fefefe;
+  margin: 0;
   padding: 0;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  -webkit-box-shadow: 4px 4px 16px rgb(50, 50, 50);
+          box-shadow: 4px 4px 16px rgb(50, 50, 50);
   display: none;
 }
 
-ul.season-container.show-item {
+.sex-container.show-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.sex-element {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  border: 0.5px solid rgba(17, 17, 17, 0.2);
+}
+
+.sex-header {
+  height: 100%;
+  margin: 0;
+  width: 100%;
+  padding: 15px;
+  font-weight: 500;
+  line-height: 1.3;
+  text-transform: uppercase;
+}
+
+.season-container {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 320px;
+  -webkit-box-shadow: 4px 4px 16px rgb(50, 50, 50);
+          box-shadow: 4px 4px 16px rgb(50, 50, 50);
+  background-color: #fefefe;
+}
+
+.season-container.show-item {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -570,20 +522,18 @@ ul.season-container.show-item {
           flex-direction: column;
 }
 
-li.season-element {
-  padding: 0;
-  margin: 0;
-  -webkit-box-flex: 1;
-      -ms-flex: 1 1 50px;
-          flex: 1 1 50px;
-  height: 30px;
+.season-element {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border: 0.5px solid rgba(17, 17, 17, 0.2);
 }
 
-span.season-header {
-  background-color: #fff;
+.season-header {
+  width: 160px;
   padding: 15px;
-  width: 300px;
-  color: darkslategrey;
+  font-weight: 500;
+  line-height: 1.3;
 }
 
 .main {
@@ -1458,6 +1408,7 @@ span.season-header {
           box-shadow: 4px 4px 16px rgb(50, 50, 50);
   border-radius: 20px;
   position: relative;
+  max-width: 400px;
 }
 
 .show-item {
@@ -1761,11 +1712,27 @@ span.season-header {
   .header__link {
     font-size: calc(24px + -6 * (100vw / 1200));
   }
+
+  .sex-header {
+    font-size: calc(14px + 2 * (100vw / 1200));
+  }
+
+  .season-header {
+    font-size: calc(14px + 2 * (100vw / 1200));
+  }
 }
 
 @media (max-width: 767px) {
   .header__link {
     font-size: calc(24px + -10.2 * ((100vw - 320px) / 1200));
+  }
+
+  .sex-header {
+    font-size: calc(14px + 3.4 * ((100vw - 320px) / 1200));
+  }
+
+  .season-header {
+    font-size: calc(14px + 3.4 * ((100vw - 320px) / 1200));
   }
 
   .header__body {
@@ -1847,7 +1814,7 @@ span.season-header {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: #aad4de;
+    background-color: rgba(17, 17, 17, 0.97);
     padding: 70px 10px 0px 10px;
     -webkit-transition: all 0.3s ease 0s;
     -o-transition: all 0.3s ease 0s;
@@ -1882,13 +1849,138 @@ span.season-header {
   .header__list li {
     margin: 0 0 20px 0;
     height: auto;
-  }
-
-  .header__icons {
-    margin: 0 0 20px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+
+  .header__link {
+    color: #fefefe;
+    padding: 10px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    border: 3px solid #fefefe;
+    border-radius: 20px;
+    width: 100vw;
+    max-width: 320px;
+  }
+
+  nav > ul > li > .cat-arrow {
+    position: absolute;
+    top: 50px;
+    right: 50px;
+    -webkit-box-ordinal-group: 2;
+        -ms-flex-order: 1;
+            order: 1;
+    margin: 0 10px;
+  }
+
+  nav > ul > li > .cat-arrow:after {
+    display: initial;
+    border-color: #fefefe;
+  }
+
+  ul.sex-container {
+    position: static;
+    width: 100%;
+    background-color: transparent;
+    padding-top: 20px;
+    -webkit-box-shadow: none;
+            box-shadow: none;
+    z-index: 0;
+    display: none;
+  }
+
+  .sex-element {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    position: relative;
+    max-width: 300px;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+  }
+
+  .sex-element > .cat-arrow {
+    position: absolute;
+    top: 24px;
+    right: 15px;
+    -webkit-box-ordinal-group: 2;
+        -ms-flex-order: 1;
+            order: 1;
+    margin: 0;
+  }
+
+  .sex-element > .cat-arrow:after {
+    top: -4px;
+    display: initial;
+    border-color: #fefefe;
+  }
+
+  .sex-header {
+    font-size: 14px;
+    color: #fefefe;
+    padding: 15px 10px;
+    border: 3px solid #fefefe;
+    border-radius: 10px;
+    height: auto;
+  }
+
+  ul.season-container {
+    padding-top: 20px;
+    -webkit-box-shadow: none;
+            box-shadow: none;
+    position: static;
+    background-color: transparent;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+
+  li.season-element {
+    border: 2px solid #fefefe;
+    border-radius: 10px;
+    margin: 0 0 10px 0;
+    width: 100%;
+    max-width: 250px;
+  }
+
+  .season-header {
+    color: #fefefe;
+  }
+
+  .header__list > li.header__icons {
+    width: 100%;
+    margin: 0;
+    gap: 20px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
@@ -1898,72 +1990,25 @@ span.season-header {
   }
 
   .header__icon {
-    height: 50px;
-    padding: 0 15px;
+    height: 80px;
+    border: 3px solid #fefefe;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    padding: 10px;
+    width: 90px;
+    border-radius: 20px;
+    margin: 0;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
   }
 
   .header__icon img {
     padding: 10px 0;
-  }
-
-  .header__icon.hoverable:hover {
-    position: relative;
-  }
-
-  .header__icon.hoverable:hover:before,
-  .header__icon.hoverable:hover:after {
-    left: -5%;
-    width: 110%;
-  }
-
-  ul.sex-container {
-    position: static;
-    width: 100%;
-    background-color: transparent;
-    z-index: 0;
-    display: none;
-  }
-
-  ul.sex-container.show-item {
-    -ms-flex-item-align: stretch;
-        -ms-grid-row-align: stretch;
-        align-self: stretch;
-  }
-
-  li.sex-element {
-    -webkit-box-flex: 1;
-        -ms-flex: 1 1 auto;
-            flex: 1 1 auto;
-  }
-
-  span.sex-header {
-    padding: 5px;
-    font-weight: 500;
-  }
-
-  ul.season-container {
-    position: static;
-    height: auto;
-  }
-
-  ul.season-container.show-item {
-    padding-top: 10px;
-  }
-
-  li.season-element {
-    -webkit-box-flex: 1;
-        -ms-flex: 1 1 30px;
-            flex: 1 1 30px;
-    height: auto;
-    border: 0.5px solid #111;
-  }
-
-  span.season-header {
-    background-color: transparent;
-    padding: 5px;
-    width: 100%;
-    color: #111;
-    font-weight: 500;
   }
 
   body {
@@ -2594,6 +2639,14 @@ span.season-header {
     max-width: 100vw;
     grid-gap: 10px;
     grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  }
+
+  .c-item__size {
+    max-width: 400px;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+    width: 100%;
   }
 }
 

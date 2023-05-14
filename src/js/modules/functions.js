@@ -219,6 +219,16 @@ export function filterShowHideUI() {
    const filterSexBtns = document.querySelectorAll(".sex-header");
    const filterSeasonList = document.querySelector(".season-container");
    const filterSeasonBtns = document.querySelectorAll(".season-header");
+   // const isTouch =
+   //    "ontouchstart" in window ||
+   //    navigator.maxTouchPoints > 0 ||
+   //    navigator.msMaxTouchPoints > 0;
+   // let eventListener;
+   // if (isTouch) {
+   //    eventListener = "click";
+   // } else {
+   //    eventListener = "mouseover";
+   // }
 
    // Функция, которая скрывает все уже открытые элементы
    function hideAll() {
@@ -226,6 +236,7 @@ export function filterShowHideUI() {
          const seasonContainer = item.nextElementSibling;
          if (seasonContainer.classList.contains("show-item")) {
             seasonContainer.classList.remove("show-item");
+            item.classList.remove("active");
          }
       });
    }
@@ -234,14 +245,16 @@ export function filterShowHideUI() {
       if (event.target.id !== "filter_btn") {
          return false;
       }
+      filterBtn.classList.toggle("active");
       filterSexList.classList.toggle("show-item");
-      // При открытии нового элемента, скрываем все уже открытые элементы
       hideAll();
    });
 
    filterSexBtns.forEach((item) => {
       item.addEventListener("click", function (event) {
          const seasonContainer = event.target.nextElementSibling;
+         event.target.classList.toggle("active");
+
          // Скрываем все уже открытые элементы
          if (!seasonContainer.classList.contains("show-item")) {
             hideAll();

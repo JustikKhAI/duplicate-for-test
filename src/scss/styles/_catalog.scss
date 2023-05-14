@@ -35,6 +35,7 @@
    box-shadow: $shadow;
    border-radius: $border-radius-medium;
    position: relative;
+   max-width: 400px;
 }
 .show-item {
    display: flex;
@@ -241,6 +242,11 @@
       max-width: 100vw;
       grid-gap: 10px;
       grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+   }
+   .c-item__size{
+      max-width: 400px;
+      align-self: center;
+      width: 100%;
    }
 }
 @media only screen and (min-width: 320px) and (max-width: 559.99px) {
