@@ -5,6 +5,7 @@
    left: 0;
    z-index: 50;
    user-select: none;
+   border-bottom: 1px solid rgba($black, $alpha: 0.2);
    &:before {
       content: "";
       position: absolute;

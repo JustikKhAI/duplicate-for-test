@@ -61,30 +61,72 @@
    #footer {
       height: auto;
    }
-   .footer-container {
-      position: relative;
-      padding: 0 5px;
-      min-width: 320px;
+   // .footer-container {
+   //    position: relative;
+   //    padding: 0 5px;
+   //    min-width: 320px;
+   //    display: flex;
+   //    flex-direction: column;
+   //    align-items: center;
+   //    justify-content: space-around;
+   // }
+   // .f-text-link {
+   //    font-size: 12px;
+   //    line-height: 2;
+   // }
+   // .f-facebook-link {
+   //    position: absolute;
+   //    top: 10px;
+   //    left: 15%;
+   // }
+   // .f-facebook-link .show-qr{
+   //    left: 0;
+   // }
+   // .f-insta-link{
+   //    position: absolute;
+   //    top: 10px;
+   //    right: 15%;
+   // }
+   .footer-container.f-grid__container{
+      width: 100%;
+      padding:5px;
+      max-width: 350px;
+
+      display: grid;
+      grid-template-areas: 
+      "item6 item1 item7"
+      "item6 item2 item7"
+      "item3 item4 item5";
+      grid-row-gap: 20px;
+   }
+   .f-grid__item{
       display: flex;
-      flex-direction: column;
+      justify-content: center;
       align-items: center;
-      justify-content: space-around;
    }
-   .f-text-link {
-      font-size: 12px;
-      line-height: 2;
+   .f-grid__item.item-1{
+      grid-area: item1;
    }
-   .f-facebook-link {
-      position: absolute;
-      top: 10px;
-      left: 15%;
-   }
-   .f-facebook-link .show-qr{
-      left: 0;
-   }
-   .f-insta-link{
-      position: absolute;
-      top: 10px;
-      right: 15%;
+   .f-grid__item.item-2{
+      grid-area: item2;
+   }.f-grid__item.item-3{
+      grid-area: item3;
+   }.f-grid__item.item-4{
+      grid-area: item4;
+   }.f-grid__item.item-5{
+      grid-area: item5;
+   }.f-grid__item.item-6{
+      border: 2px solid #f0f0f0;
+      border-radius: 20px;
+      grid-area: item6;
+      padding: 10px;
+      background-color: rgba($black, $alpha: 0.1);
+   }.f-grid__item.item-7{
+      grid-area: item7;
+      border: 2px solid #f0f0f0;
+      border-radius: 20px;
+      padding: 10px;
+      background-color: rgba($black, $alpha: 0.1);
+
    }
 }
