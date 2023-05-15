@@ -88,7 +88,13 @@
 }
 .lock {
 }
-.hoverable {
+.header .hoverable {
+   border-top: 2px solid transparent;
+   border-bottom: 2px solid transparent;
+   &:hover {
+      border-top: 2px solid $color_corp;
+      border-bottom: 2px solid $color_corp;
+   }
 }
 .cat-arrow {
    margin-left: 10px;
@@ -282,8 +288,6 @@
          width: 100vw;
          max-width: 320px;
       }
-
-      
    }
    nav > ul > li > .cat-arrow {
       position: absolute;
@@ -351,28 +355,28 @@
    .season-header {
       color: $white;
    }
-   .header__list>li.header__icons {
-         width: 100%;
-         margin: 0;
-         gap: 20px;
-         display: flex;
-         flex-direction: row;
-         justify-content: center;
-         align-items: center;
-      }
+   .header__list > li.header__icons {
+      width: 100%;
+      margin: 0;
+      gap: 20px;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+   }
    .header__icon {
-         height: 80px;
-         border: 3px solid $white;
-         display: flex;
-         align-items: center;
-         padding: 10px;
-         width: 90px;
-         border-radius: 20px;
-         margin: 0;
-         justify-content: center;
+      height: 80px;
+      border: 3px solid $white;
+      display: flex;
+      align-items: center;
+      padding: 10px;
+      width: 90px;
+      border-radius: 20px;
+      margin: 0;
+      justify-content: center;
 
-         img {
-            padding: 10px 0;
-         }
+      img {
+         padding: 10px 0;
       }
+   }
 }

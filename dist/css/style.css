@@ -423,6 +423,16 @@ a {
   margin: 0 0 0 14px;
 }
 
+.header .hoverable {
+  border-top: 2px solid transparent;
+  border-bottom: 2px solid transparent;
+}
+
+.header .hoverable:hover {
+  border-top: 2px solid #00868a;
+  border-bottom: 2px solid #00868a;
+}
+
 .cat-arrow {
   margin-left: 10px;
   height: 7px;
@@ -1374,8 +1384,8 @@ a {
   background-color: #e5e5f7;
   opacity: 1;
   background-size: 10px 10px;
-  background-image: -o-repeating-linear-gradient(45deg, #00868a 0, #00868a 1px, #fefefe 0, #fefefe 50%);
-  background-image: repeating-linear-gradient(45deg, #00868a 0, #00868a 1px, #fefefe 0, #fefefe 50%);
+  background-image: -o-repeating-linear-gradient(45deg, #A3D3D4 0, #A3D3D4 1px, #fefefe 0, #fefefe 50%);
+  background-image: repeating-linear-gradient(45deg, #A3D3D4 0, #A3D3D4 1px, #fefefe 0, #fefefe 50%);
 }
 
 .catalog-container {

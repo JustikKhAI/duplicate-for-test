@@ -10,8 +10,8 @@
    background-size: 10px 10px;
    background-image: repeating-linear-gradient(
       45deg,
-      $color_corp 0,
-      $color_corp 1px,
+      #A3D3D4 0,
+      #A3D3D4 1px,
       $white 0,
       $white 50%
    );
@@ -243,7 +243,7 @@
       grid-gap: 10px;
       grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
    }
-   .c-item__size{
+   .c-item__size {
       max-width: 400px;
       align-self: center;
       width: 100%;
