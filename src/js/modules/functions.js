@@ -187,6 +187,13 @@ function getFilter(id) {
          }
       }
    });
+   const countShowedElems = Array.from(document.querySelectorAll(".show-item"));
+      const errorTitle = document.querySelector(".error-title");
+   if (countShowedElems.length == 0) {
+      errorTitle.classList.add("show-item");
+   } else {
+      errorTitle.classList.remove("show-item");
+   }
 }
 export function filterOtherPage(event) {
    if (!event.target.classList.contains("filter-option")) {
@@ -283,3 +290,14 @@ export function filterShowHideUI() {
       }
    });
 }
+// export function showEmptyCatalogInfo(){
+//    const catalogContainer = document.querySelector(".catalog-container");
+//    const catalogItems = document.querySelectorAll(".catalog-item");
+//    const emptyInfo = document.createElement("div");
+
+//    catalogContainer.addEventListener("load", () => {
+//       if (catalogItems == 0) {
+         
+//       }
+//    });
+// }

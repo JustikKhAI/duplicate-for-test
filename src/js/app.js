@@ -1,9 +1,11 @@
+import { SWE7_BIN } from "mysql/lib/protocol/constants/charsets.js";
 import * as justikFunctions from "./modules/functions.js";
 window.addEventListener("load", () => {
    const spinner = document.getElementById("spinner");
    spinner.style.display = "none";
 });
 justikFunctions.isWebp();
+
 justikFunctions.checkTouchDevice();
 justikFunctions.qrOnTouchDevice();
 
@@ -16,7 +18,6 @@ const headerFilter = document.querySelector(".sex-container");
 const currentPageUrl = window.location.href;
 if (currentPageUrl.includes("catalog")) {
    // Сторінка КАТАЛОГ
-   console.log(currentPageUrl);
    justikFunctions.renderCatalog();
    setTimeout(justikFunctions.filterFromOtherPage,500);
    headerFilter.addEventListener("click", justikFunctions.filterHandler);

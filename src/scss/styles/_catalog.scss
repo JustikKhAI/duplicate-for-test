@@ -26,6 +26,16 @@
    margin: 10px auto;
    user-select: none;
 }
+.error-title{
+   // text-align: center;
+   font-weight: 600;
+   display: none;
+   
+   &.show-item{
+      display: flex;
+      align-items: center;
+   }
+}
 .catalog-item {
    display: flex;
    flex-direction: column;

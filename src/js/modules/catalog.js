@@ -10,6 +10,7 @@ class Product {
       this.price = parseFloat(data.PRICE);
       this.sale = parseFloat(data.SALE);
       this.img = data.IMG;
+      this.webp = data.WEBP;
       this.sizes = [1, 2, 3, 4, 5, 6];
       this.sexClass = function () {
          if (this.sex == "жіноче") {
@@ -50,6 +51,7 @@ class Product {
       };
    }
    buildProduct() {
+      const isWebpDev = document.body.classList.contains("webp");
       let catalogItem = document.createElement("div");
       if (this.articul == "") {
          catalogItem.id = "emptyElement";
@@ -64,8 +66,11 @@ class Product {
 
       let itemImg = document.createElement("img");
       itemImg.className = "c-item__img";
-      itemImg.src = this.img;
-
+      if (isWebpDev) {
+         itemImg.src = this.webp;
+      } else {
+         itemImg.src = this.img;
+      }
       let itemName = document.createElement("p");
       itemName.className = "c-item__name";
       itemName.innerText = this.name;
@@ -143,6 +148,10 @@ export class Catalog {
    render() {
       const htmlCat = document.createElement("div");
       htmlCat.className = "catalog-container";
+      const errorTitle = document.createElement("div");
+      errorTitle.className = "error-title";
+      errorTitle.innerText = "Упс... Щось пішло не так. Спробуйте перезавантажити сторінку."
+      htmlCat.appendChild(errorTitle);
 
       this.products.forEach((product) => {
          let tmp = product.buildProduct();

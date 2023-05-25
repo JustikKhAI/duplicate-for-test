@@ -1402,6 +1402,20 @@ a {
           user-select: none;
 }
 
+.error-title {
+  font-weight: 600;
+  display: none;
+}
+
+.error-title.show-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
 .catalog-item {
   display: -webkit-box;
   display: -ms-flexbox;
