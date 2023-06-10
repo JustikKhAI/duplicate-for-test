@@ -11,7 +11,8 @@ const sass = gulpSass(dartSass);
 
 export const scss = () => {
    return app.gulp
-      .src(app.path.src.scss, { sourcemaps: app.isDev })
+      .src(app.path.src.scss)
+      .pipe(app.plugins.sourcemaps.init())
       .pipe(
          app.plugins.plumber(
             app.plugins.notify.onError({
@@ -22,19 +23,14 @@ export const scss = () => {
       )
       .pipe(app.plugins.replace(/@img\//g, "../img/"))
       .pipe(
-         sass({
-            outputStyle: "expanded",
-         })
+         sass().on("error", sass.logError)
       )
-      .pipe(app.plugins.if(app.isBuild, groupCssMediaQueries()))
+      .pipe(groupCssMediaQueries())
       .pipe(
-         app.plugins.if(
-            app.isBuild,
-            webpcss({
-               webpClass: ".webp",
-               noWebpClass: ".no-webp",
-            })
-         )
+         webpcss({
+            webpClass: ".webp",
+            noWebpClass: ".no-webp",
+         })
       )
       .pipe(
          app.plugins.if(
@@ -47,10 +43,23 @@ export const scss = () => {
          )
       )
       .pipe(app.gulp.dest(app.path.build.css))
-      .pipe(app.plugins.if(app.isBuild, cleanCss()))
+      .pipe(
+         app.plugins.if(
+            app.isBuild,
+            cleanCss({
+               level: 2,
+            })
+         )
+      )
       .pipe(
          rename({
             extname: ".min.css",
+         })
+      )
+      .pipe(app.plugins.sourcemaps.write("."))
+      .pipe(
+         app.plugins.size({
+            showFiles: true,
          })
       )
       .pipe(app.gulp.dest(app.path.build.css))

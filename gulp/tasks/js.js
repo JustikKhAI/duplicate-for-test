@@ -1,8 +1,12 @@
-import webpack from "webpack-stream";
+import babel from "gulp-babel";
+import uglify from "gulp-uglify";
+import concat from "gulp-concat";
+
 
 export const js = () => {
    return app.gulp
-      .src(app.path.src.js, { sourcemaps: app.isDev })
+      .src("./src/js/**/*.js")
+      .pipe(app.plugins.sourcemaps.init())
       .pipe(
          app.plugins.plumber(
             app.plugins.notify.onError({
@@ -12,11 +16,16 @@ export const js = () => {
          )
       )
       .pipe(
-         webpack({
-            mode: app.isBuild ? "production" : "development",
-            output: {
-               filename: "app.min.js",
-            },
+         babel({
+            presets: ["@babel/env"],
+         })
+      )
+      .pipe(uglify())
+      .pipe(concat("app.min.js"))
+      .pipe(app.plugins.sourcemaps.write("."))
+      .pipe(
+         app.plugins.size({
+            showFiles: true,
          })
       )
       .pipe(app.gulp.dest(app.path.build.js))

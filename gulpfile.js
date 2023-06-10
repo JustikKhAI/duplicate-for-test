@@ -22,10 +22,15 @@ import { server } from "./gulp/tasks/server.js";
 import { scss } from "./gulp/tasks/scss.js";
 import { js } from "./gulp/tasks/js.js";
 import { images } from "./gulp/tasks/images.js";
-import { otfToTtf, ttfToWoff, fontStyle, ttfToWoff2 } from "./gulp/tasks/fonts.js";
+import {
+   otfToTtf,
+   ttfToWoff,
+   fontStyle,
+   ttfToWoff2,
+} from "./gulp/tasks/fonts.js";
 import { svgSprive } from "./gulp/tasks/svgSprive.js";
 import { zip } from "./gulp/tasks/zip.js";
-import { ftp } from "./gulp/tasks/ftp.js"
+import { ftp } from "./gulp/tasks/ftp.js";
 
 // Наблюдатель за изменениями в файлах
 function watcher() {
@@ -38,25 +43,24 @@ function watcher() {
 
 export { svgSprive };
 
-const fonts = gulp.series(otfToTtf, ttfToWoff, ttfToWoff2, fontStyle);
-
-const mainTasks = gulp.series(
-   fonts,
-   gulp.parallel(copy, html, scss, js, images)
+const fonts = gulp.series(
+   otfToTtf,
+   gulp.parallel(ttfToWoff, ttfToWoff2),
+   fontStyle
 );
 
+const mainTasks = gulp.parallel(copy, html, scss, js, images);
 // Построение сценариев выполнения задач
 const dev = gulp.series(reset, mainTasks, gulp.parallel(watcher, server));
-const build = gulp.series(reset, mainTasks);
+const build = gulp.series(reset, fonts, mainTasks);
 const deployZIP = gulp.series(reset, mainTasks, zip);
 const deployFTP = gulp.series(reset, mainTasks, ftp);
-
 
 export { dev };
 export { build };
 export { deployZIP };
 export { deployFTP };
-   
+export { fonts };
 
 // Выполнение сценария по умолчанию
 gulp.task("default", dev);
