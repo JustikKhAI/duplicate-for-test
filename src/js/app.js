@@ -66,11 +66,12 @@ class Product {
 
       let itemImg = document.createElement("img");
       itemImg.className = "c-item__img";
-      itemImg.src = "../img/catalog/shoes-default.png";
+      // itemImg.src = "../img/catalog/shoes-default.png";
+      itemImg.src = "";
       if (!isWebpDev) {
-         itemImg.setAttribute("data-src", this.webp);
+         itemImg.setAttribute("data", this.webp);
       } else {
-         itemImg.setAttribute("data-src", this.img);
+         itemImg.setAttribute("data", this.img);
       }
       let itemName = document.createElement("p");
       itemName.className = "c-item__name";
@@ -190,7 +191,6 @@ function getActionPrice(price, sale) {
       return "price-active";
    }
 }
-
 
 /* Проверка поддержки webp, добавление класса webp или no-webp для HTML */
 function isWebp() {
@@ -344,6 +344,10 @@ function renderCatalog() {
       complete: function (results) {
          catalogPage.generateProducts(results.data);
          catalogPage.render();
+            const viewedImages = document.querySelectorAll(".c-item__img");
+            viewedImages.forEach((item) => {
+               observer.observe(item);
+            });
       },
    });
 }
@@ -419,7 +423,7 @@ function filterShowHideUI() {
    const filterSexBtns = document.querySelectorAll(".sex-header");
    const filterSeasonList = document.querySelector(".season-container");
    const filterSeasonBtns = document.querySelectorAll(".season-header");
-   
+
    // Функция, которая скрывает все уже открытые элементы
    function hideAll() {
       filterSexBtns.forEach((item) => {
@@ -473,25 +477,29 @@ function filterShowHideUI() {
       }
    });
 }
-function preloadByScroll() {
-   const catImages = Array.from(document.getElementsByClassName("c-item__img"));
-   for (let i = 0; i < catImages.length; i++){
-      if (i < 12) {
-         catImages[i].src = catImages[i].getAttribute("data-src");
-         catImages[i].removeAttribute("data-src");
-      } else {
-         let imgItem = catImages[i];
-         window.addEventListener("scroll", () => {
-            let rect = imgItem.getBoundingClientRect();
-            let distFromTop = rect.top;
-            if (distFromTop < 100 && imgItem.getAttribute("data-src")) {
-               imgItem.src = imgItem.getAttribute("data-src");
-               imgItem.removeAttribute("data-src");
-            }
-         });
+
+
+
+const optionts = {
+   root: null,
+   rootMargin: "0px",
+   threshold: 0.1,
+};
+
+function handleImg(myImg, observer) {
+   myImg.forEach((myImgSingle) => {
+      console.log(myImgSingle.intersectionRatio);
+      if (myImgSingle.intersectionRatio > 0) {
+         loadImage(myImgSingle.target);
       }
-   }   
+   });
 }
+
+function loadImage(viewImg) {
+   viewImg.src = viewImg.getAttribute("data");
+}
+
+const observer = new IntersectionObserver(handleImg, optionts);
 
 
 window.addEventListener("load", () => {
@@ -513,9 +521,10 @@ const currentPageUrl = window.location.href;
 if (currentPageUrl.includes("catalog")) {
    // Сторінка КАТАЛОГ
    renderCatalog();
+   
    setTimeout(filterFromOtherPage, 500);
    headerFilter.addEventListener("click", filterHandler);
-   preloadByScroll();
+   
 } else {
    // ГОЛОВНА
    assignIndexFotoPath();
