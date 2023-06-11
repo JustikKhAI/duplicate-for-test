@@ -66,9 +66,8 @@ class Product {
 
       let itemImg = document.createElement("img");
       itemImg.className = "c-item__img";
-      // itemImg.src = "../img/catalog/shoes-default.png";
-      itemImg.src = "";
-      if (!isWebpDev) {
+      itemImg.src = "../img/catalog/shoes-default.png";
+      if (isWebpDev) {
          itemImg.setAttribute("data", this.webp);
       } else {
          itemImg.setAttribute("data", this.img);
@@ -337,7 +336,7 @@ function qrOnTouchDevice() {
 }
 const catalogPage = new Catalog();
 function renderCatalog() {
-   Papa.parse("../files/price-var.csv", {
+   Papa.parse("../files/pricelist.csv", {
       download: true,
       header: true,
       skipEmptyLines: "greedy",
