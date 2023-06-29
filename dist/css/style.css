@@ -562,7 +562,6 @@ a {
       -ms-user-select: none;
           user-select: none;
   background-image: url("../img/main/bg-image.svg"), -webkit-gradient(linear, left top, right top, from(#4fbfa5), to(#00868a));
-  background-image: url("../img/main/bg-image.svg"), -o-linear-gradient(left, #4fbfa5, #00868a);
   background-image: url("../img/main/bg-image.svg"), linear-gradient(90deg, #4fbfa5, #00868a);
   background-repeat: no-repeat;
   background-size: contain;
@@ -665,7 +664,6 @@ a {
 .main .hoverable:hover {
   background-color: transparent;
   background: -webkit-gradient(linear, left top, left bottom, from(rgb(0, 161, 166)), to(rgb(0, 107, 110)));
-  background: -o-linear-gradient(top, rgb(0, 161, 166), rgb(0, 107, 110));
   background: linear-gradient(to bottom, rgb(0, 161, 166), rgb(0, 107, 110));
   -webkit-box-shadow: 5px 5px 10px #000;
           box-shadow: 5px 5px 10px #000;
@@ -1124,7 +1122,6 @@ a {
 .shops-item__phone.hoverable:hover {
   background-color: transparent;
   background: -webkit-gradient(linear, left top, left bottom, from(#00868a), to(rgb(0, 108, 110)));
-  background: -o-linear-gradient(top, #00868a, rgb(0, 108, 110));
   background: linear-gradient(to bottom, #00868a, rgb(0, 108, 110));
 }
 
@@ -1384,7 +1381,6 @@ a {
   background-color: #e5e5f7;
   opacity: 1;
   background-size: 10px 10px;
-  background-image: -o-repeating-linear-gradient(45deg, #A3D3D4 0, #A3D3D4 1px, #fefefe 0, #fefefe 50%);
   background-image: repeating-linear-gradient(45deg, #A3D3D4 0, #A3D3D4 1px, #fefefe 0, #fefefe 50%);
 }
 
@@ -1788,7 +1784,6 @@ a {
     border-radius: 1px;
     left: 0;
     -webkit-transition: all 0.3s ease 0s;
-    -o-transition: all 0.3s ease 0s;
     transition: all 0.3s ease 0s;
   }
 
@@ -1829,7 +1824,6 @@ a {
     top: 9px;
     background-color: #00868a;
     -webkit-transition: all 0.3s ease 0s;
-    -o-transition: all 0.3s ease 0s;
     transition: all 0.3s ease 0s;
   }
 
@@ -1842,7 +1836,6 @@ a {
     background-color: rgba(17, 17, 17, 0.97);
     padding: 70px 10px 0px 10px;
     -webkit-transition: all 0.3s ease 0s;
-    -o-transition: all 0.3s ease 0s;
     transition: all 0.3s ease 0s;
     overflow: scroll;
   }
