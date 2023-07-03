@@ -1906,6 +1906,7 @@ a {
     -webkit-box-ordinal-group: 2;
         -ms-flex-order: 1;
             order: 1;
+    z-index: -2;
     margin: 0 10px;
   }
 
@@ -1948,6 +1949,7 @@ a {
         -ms-flex-order: 1;
             order: 1;
     margin: 0;
+    z-index: -2;
   }
 
   .sex-element > .cat-arrow:after {
@@ -1986,6 +1988,7 @@ a {
 
   .season-header {
     color: #fefefe;
+    width: 100%;
   }
 
   .header__list > li.header__icons {

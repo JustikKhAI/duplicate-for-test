@@ -44,9 +44,6 @@
       display: none;
    }
 
-   &__menu {
-   }
-
    &__list {
       position: relative;
       z-index: 13;
@@ -290,12 +287,14 @@
       top: 50px;
       right: 50px;
       order: 1;
+      z-index:-2;
       margin: 0 10px;
       &:after {
          display: initial;
          border-color: $white;
       }
    }
+
    ul.sex-container {
       position: static;
       width: 100%;
@@ -318,6 +317,7 @@
       right: 15px;
       order: 1;
       margin: 0;
+      z-index:-2;
 
       &:after {
          top: -4px;
@@ -350,6 +350,7 @@
 
    .season-header {
       color: $white;
+      width: 100%;
    }
    .header__list > li.header__icons {
       width: 100%;

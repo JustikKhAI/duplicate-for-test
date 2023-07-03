@@ -226,16 +226,7 @@ export function filterShowHideUI() {
    const filterSexBtns = document.querySelectorAll(".sex-header");
    const filterSeasonList = document.querySelector(".season-container");
    const filterSeasonBtns = document.querySelectorAll(".season-header");
-   // const isTouch =
-   //    "ontouchstart" in window ||
-   //    navigator.maxTouchPoints > 0 ||
-   //    navigator.msMaxTouchPoints > 0;
-   // let eventListener;
-   // if (isTouch) {
-   //    eventListener = "click";
-   // } else {
-   //    eventListener = "mouseover";
-   // }
+   
 
    // Функция, которая скрывает все уже открытые элементы
    function hideAll() {
@@ -290,14 +281,3 @@ export function filterShowHideUI() {
       }
    });
 }
-// export function showEmptyCatalogInfo(){
-//    const catalogContainer = document.querySelector(".catalog-container");
-//    const catalogItems = document.querySelectorAll(".catalog-item");
-//    const emptyInfo = document.createElement("div");
-
-//    catalogContainer.addEventListener("load", () => {
-//       if (catalogItems == 0) {
-         
-//       }
-//    });
-// }
